@@ -7,10 +7,17 @@ import java.awt.event.*;
 public class Game extends JPanel implements Runnable, KeyListener{
 private BufferedImage back;
 private int key;
+private ImageIcon Background;
+
+
+
+
+
 public Game() {
 new Thread(this).start();
 this.addKeyListener(this);
 key =-1;
+background = new ImageIcon("BG.png")
 }
 public void run() {
 try {
@@ -28,8 +35,23 @@ if( back ==null)
 back=(BufferedImage)( (createImage(getWidth(), getHeight())));
 Graphics g2d = back.createGraphics();
 g2d.clearRect(0,0,getSize().width, getSize().height);
+
+
+
+
 g2d.setFont( new Font("Broadway", Font.BOLD, 50));
-g2d.drawString("key " + key, 340, 100);
+
+
+g2d.drawImage(background.getImage(),0,0, getWidth(), getHeight(), this);
+
+
+
+
+
+
+
+
+
 twoDgraph.drawImage(back, null, 0, 0);
 }
 
